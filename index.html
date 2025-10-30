@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemikiran Reformasi Muhammad Iqbal dan Qasim Amin</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #CD853F;
+            --muted: #F3F4F6;
+            --text-dark: #2C1810;
+            --text-medium: #5D4037;
+            --border: #A0522D;
+            --bg-cream: #FFF8DC;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: #FFFFFF;
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #FFFFFF;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 4px solid var(--accent);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: #FFFFFF;
+        }
+
+        .header .sub {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+            color: #FFFFFF;
+        }
+
+        /* Navbar Styles */
+        .nav {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 0.6rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav li {
+            margin: 0;
+        }
+
+        .nav a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            transition: all 0.18s ease;
+            display: block;
+            border: 1px solid transparent;
+            background: transparent;
+            font-size: 0.95rem;
+        }
+
+        .nav a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            color: #FFFFFF;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav a.active {
+            background: var(--accent);
+            color: #FFFFFF;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Dropdown Styles */
+        .nav .more {
+            position: relative;
+        }
+
+        .nav .more > button {
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.18s ease;
+        }
+
+        .nav .more > button:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav .more.open > button {
+            background: var(--accent);
+            color: #FFFFFF;
+        }
+
+        .nav .more-list {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 2px solid var(--border);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            min-width: 200px;
+            display: none;
+            z-index: 200;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .nav .more-list a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            border-radius: 0;
+            transition: all 0.18s ease;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--muted);
+        }
+
+        .nav .more-list a:last-child {
+            border-bottom: none;
+        }
+
+        .nav .more-list a:hover { 
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: none;
+            padding-left: 1.2rem;
+        }
+
+        .nav .more.open .more-list { 
+            display: block;
+            animation: dropdownFade 0.2s ease;
+        }
+
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .creator-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            background: var(--bg-cream);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .section {
+            background: white;
+            margin: 2rem 0;
+            padding: 2.5rem;
+            border-radius: 8px;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .section h3 {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section h4 {
+            color: var(--text-medium);
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+
+        .hero-figures {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin: 2rem 0;
+            justify-content: center;
+        }
+
+        .figure-card {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 420px;
+        }
+
+        .figure-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .figure-card h3 {
+            margin-top: 1rem;
+            color: var(--primary);
+        }
+
+        .blockquote {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            border-left: 5px solid var(--primary);
+        }
+
+        .blockquote p {
+            margin: 0.5rem 0;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .comparison-table th {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table td {
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .comparison-table tr:nth-child(even) {
+            background: var(--bg-cream);
+        }
+
+        .icon-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .icon-list li {
+            margin: 1rem 0;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .icon-list li:before {
+            content: "▪";
+            color: var(--secondary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1rem 1rem 1rem 2rem;
+            margin: 1.5rem 0;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg-cream);
+            border-left: 5px solid var(--primary);
+        }
+
+        .timeline-year {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .diagram {
+            background: var(--bg-cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 2px solid var(--border);
+        }
+
+        .diagram pre {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            line-height: 1.6;
+        }
+
+        .key-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .key-point {
+            background: var(--bg-cream);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--border);
+            transition: transform 0.2s ease;
+        }
+
+        .key-point:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .key-point h4 {
+            margin-top: 0;
+            color: var(--primary);
+        }
+
+        .footer {
+            background: var(--primary);
+            color: #FFFFFF;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.95;
+            color: #FFFFFF;
+            margin: 0.5rem 0;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--secondary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            border: none;
+        }
+
+        .scroll-top:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav ul {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .comparison-table {
+                font-size: 0.9rem;
+            }
+
+            .diagram pre {
+                font-size: 0.7rem;
+            }
+
+            .creator-info {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Pemikiran Reformasi dan Modernisasi Islam</h1>
+        <p class="sub">Membaca Ulang Warisan Muhammad Iqbal dan Qasim Amin</p>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#pendahuluan">Pendahuluan</a></li>
+            <li><a href="#tokoh">Latar Belakang</a></li>
+            <li><a href="#reformasi">Reformasi Islam</a></li>
+            <li><a href="#perempuan">Emansipasi Perempuan</a></li>
+            <li><a href="#taqlid">Kritik Taqlid</a></li>
+            <li class="more">
+                <button type="button">Lainnya ▾</button>
+                <div class="more-list">
+                    <a href="#dampak">Dampak & Relevansi</a>
+                    <a href="#penutup">Penutup</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="creator-info">
+            <div>
+                <span style="color: var(--text-medium);">Created by:</span> 
+                <strong style="color: var(--primary);">Huda</strong> & 
+                <strong style="color: var(--primary);">Sally</strong>
+            </div>
+            <div>
+                <span style="color: var(--text-medium);">Created at:</span> 
+                <strong style="color: var(--primary);">October 30, 2025</strong>
+            </div>
+        </div>
+
+        <section id="pendahuluan" class="section">
+            <h2>I. Pendahuluan: Ketika Islam Membutuhkan Jawaban</h2>
+            <p>Bayangkan dunia Islam di penghujung abad ke-19. Hampir seluruh wilayah Muslim berada di bawah cengkeraman kolonialisme Eropa—dari Maghrib hingga Asia Tenggara. Kemajuan sains dan teknologi Barat yang pesat kontras dengan kemunduran dunia Islam yang telah kehilangan kejayaannya. Pertanyaannya menggema di setiap sudut: <em>Mengapa kita tertinggal? Apakah Islam masih relevan di era modern?</em></p>
+            
+            <p>Di tengah kegelisahan ini, muncul dua suara yang berani menantang status quo. Muhammad Iqbal dari Punjab dan Qasim Amin dari Mesir—dua pemikir dari dua benua berbeda, namun dengan satu misi yang sama: membuktikan bahwa Islam bukan penghalang kemajuan, melainkan justru kunci untuk kebangkitan umat.</p>
+
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Konteks Historis</h4>
+                    <p>Abad 19-20: Era kolonialisme Eropa dan kemunduran dunia Islam</p>
+                </div>
+                <div class="key-point">
+                    <h4>Tantangan Utama</h4>
+                    <p>Bagaimana memodernisasi tanpa kehilangan identitas Islam?</p>
+                </div>
+                <div class="key-point">
+                    <h4>Solusi</h4>
+                    <p>Reformasi dari dalam dengan tetap berpegang pada prinsip fundamental</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tokoh" class="section">
+            <h2>II. Jejak Dua Reformis: Dari Timur dan Barat</h2>
+            
+            <div class="hero-figures">
+                <div class="figure-card">
+                    <img src="asset/iqbal.jpg" alt="Muhammad Iqbal" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23CD853F%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2260%22 fill=%22white%22%3EMI%3C/text%3E%3C/svg%3E'">
+                    <div>
+                        <h3>Muhammad Iqbal</h3>
+                        <p><strong>(1877-1938)</strong></p>
+                        <p>Penyair-Filsuf dari Punjab</p>
+                    </div>
+                </div>
+
+                <div class="figure-card">
+                    <img src="asset/kasim.jpg" alt="Qasim Amin" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22%3E%3Crect fill=%22%23D2691E%22 width=%22200%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2260%22 fill=%22white%22%3EQA%3C/text%3E%3C/svg%3E'">
+                    <div>
+                        <h3>Qasim Amin</h3>
+                        <p><strong>(1863-1908)</strong></p>
+                        <p>Pembela Perempuan dari Mesir</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>A. Muhammad Iqbal (1877-1938): Penyair Filsuf yang Melampaui Zamannya</h3>
+            <p>Lahir di sebuah keluarga sederhana di Sialkot, Punjab, siapa sangka bocah bernama Muhammad Iqbal ini akan menjadi salah satu pemikir Muslim terbesar abad ke-20? Perjalanan intelektualnya dimulai di tanah kelahirannya, berlanjut ke Cambridge, lalu Munich—tempat ia meraih gelar doktor filsafat.</p>
+
+            <ul class="icon-list">
+                <li><strong>Pendidikan:</strong> Punjab → Cambridge → Munich (Doktor Filsafat)</li>
+                <li><strong>Karya Utama:</strong> <em>The Reconstruction of Religious Thought in Islam</em> (1930)</li>
+                <li><strong>Keunikan:</strong> Memadukan filsafat Barat dengan khazanah Islam klasik</li>
+                <li><strong>Warisan:</strong> Inspirasi bagi pembentukan Pakistan (1947)</li>
+            </ul>
+
+            <h3>B. Qasim Amin (1863-1908): Sang Pembela Perempuan yang Kontroversial</h3>
+            <p>Sementara itu, di Mesir, Qasim Amin tumbuh di tengah masyarakat yang terbelenggu tradisi patriarki yang sangat kuat. Lahir dalam keluarga terpandang, ia mendapat kesempatan langka untuk belajar hukum di Prancis. Di Paris, matanya terbuka melihat status perempuan Eropa yang jauh berbeda dari perempuan Mesir.</p>
+
+            <ul class="icon-list">
+                <li><strong>Pendidikan:</strong> Mesir → Prancis (Hukum)</li>
+                <li><strong>Karya Utama:</strong> <em>Tahrir al-Mar'ah</em> (1899), <em>al-Mar'ah al-Jadidah</em> (1908)</li>
+                <li><strong>Fokus:</strong> Emansipasi perempuan dan reformasi sosial</li>
+                <li><strong>Kontroversi:</strong> Dikecam ulama konservatif, dituduh westernisasi</li>
+            </ul>
+        </section>
+
+        <section id="reformasi" class="section">
+            <h2>III. Pemikiran Reformasi dan Modernisasi Islam</h2>
+
+            <h3>A. Muhammad Iqbal: Rekonstruksi dari Dalam</h3>
+            <p>Inti pemikiran Iqbal dapat dirangkum dalam satu kata: <strong>Khudi</strong> (kesadaran diri atau ego kreatif). Bagi Iqbal, masalah utama umat Islam bukanlah Islam itu sendiri, melainkan hilangnya kesadaran diri sebagai khalifah Allah di muka bumi.</p>
+
+            <div class="blockquote">
+                <p>"The teaching of the Quran that life is a process of progressive creation necessitates that each generation, guided but unhampered by the work of its predecessors, should be permitted to solve its own problems."</p>
+                <p style="text-align: right; font-weight: bold;">— Muhammad Iqbal</p>
+            </div>
+
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Memadukan Wahyu dan Akal</h4>
+                    <p>Islam bukan agama anti-rasional. Al-Quran justru mendorong manusia untuk berpikir dan menggunakan akalnya.</p>
+                </div>
+                <div class="key-point">
+                    <h4>Dinamisme vs Statisme</h4>
+                    <p>Islam adalah agama dinamis. Prinsip dasarnya abadi, tapi aplikasinya harus disesuaikan dengan zaman.</p>
+                </div>
+                <div class="key-point">
+                    <h4>Ijtihad Kolektif</h4>
+                    <p>Pintu ijtihad tidak pernah tertutup. Perlu lembaga yang melibatkan ulama, saintis, dan filsuf.</p>
+                </div>
+            </div>
+
+            <h3>B. Qasim Amin: Reformasi Dimulai dari Rumah</h3>
+            <p>Sementara Iqbal bergerak di ranah filosofis-teologis, Qasim Amin memilih jalur yang lebih konkret: reformasi sosial. Dan ia memilih medan pertempuran yang paling sensitif: status perempuan.</p>
+
+            <div class="blockquote">
+                <p>"Sesungguhnya kemajuan suatu bangsa sangat tergantung pada kedudukan perempuan di dalamnya. Tidak ada bangsa yang bisa maju jika perempuannya terbelakang."</p>
+                <p style="text-align: right; font-weight: bold;">— Qasim Amin, Tahrir al-Mar'ah (1899)</p>
+            </div>
+
+            <ul class="icon-list">
+                <li><strong>Cadar Berlebihan:</strong> Mengurung perempuan bukan perintah Al-Quran, melainkan tradisi lokal</li>
+                <li><strong>Pendidikan Perempuan:</strong> Hadis Nabi jelas: "Menuntut ilmu itu wajib bagi setiap Muslim"</li>
+                <li><strong>Reformasi Poligami:</strong> Al-Quran mensyaratkan keadilan mutlak yang hampir mustahil dipenuhi</li>
+                <li><strong>Partisipasi Publik:</strong> Perempuan di masa Nabi aktif dalam kehidupan sosial dan ekonomi</li>
+            </ul>
+
+            <h3>C. Perbandingan: Dua Jalan, Satu Tujuan</h3>
+            <table class="comparison-table">
+                <tr>
+                    <th>Aspek</th>
+                    <th>Muhammad Iqbal</th>
+                    <th>Qasim Amin</th>
+                </tr>
+                <tr>
+                    <td><strong>Pendekatan</strong></td>
+                    <td>Filosofis-teologis</td>
+                    <td>Praktis-sosiologis</td>
+                </tr>
+                <tr>
+                    <td><strong>Fokus Utama</strong></td>
+                    <td>Rekonstruksi pemikiran dan hukum Islam</td>
+                    <td>Reformasi sosial dan emansipasi perempuan</td>
+                </tr>
+                <tr>
+                    <td><strong>Metode</strong></td>
+                    <td>Sintesis filsafat Barat dan Islam</td>
+                    <td>Kritik tradisi dengan argumen Islam</td>
+                </tr>
+                <tr>
+                    <td><strong>Target Audiens</strong></td>
+                    <td>Intelektual dan pemikir Muslim</td>
+                    <td>Masyarakat umum dan pembuat kebijakan</td>
+                </tr>
+                <tr>
+                    <td><strong>Gaya Komunikasi</strong></td>
+                    <td>Puisi filosofis dan prosa akademis</td>
+                    <td>Esai politis yang provokatif</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="perempuan" class="section">
+            <h2>IV. Emansipasi dan Peran Perempuan: Revolusi yang Tertunda</h2>
+
+            <h3>A. Qasim Amin: Pahlawan yang Disalahpahami</h3>
+            <p>Mari kita jujur: Qasim Amin sering disalahpahami. Banyak yang mengira ia ingin membuat perempuan Muslim seperti perempuan Prancis. Tidak! Yang ia inginkan adalah mengembalikan hak-hak perempuan yang dijamin oleh Islam tapi dirampas oleh tradisi patriarki.</p>
+
+            <h4>Kritik Utama Amin:</h4>
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Cadar & Isolasi Sosial</h4>
+                    <p>Memisahkan perempuan dari masyarakat sama artinya dengan memisahkan separuh masyarakat dari kehidupan.</p>
+                </div>
+                <div class="key-point">
+                    <h4>Pendidikan sebagai Hak</h4>
+                    <p>Hampir 99% perempuan Mesir buta huruf. Ini kejahatan kemanusiaan yang berlindung di balik agama.</p>
+                </div>
+                <div class="key-point">
+                    <h4>Reformasi Hukum Keluarga</h4>
+                    <p>Poligami disalahgunakan. Al-Quran mensyaratkan keadilan mutlak yang hampir mustahil.</p>
+                </div>
+            </div>
+
+            <div class="blockquote">
+                <p>"Apa yang saya usulkan bukanlah meniru perempuan Eropa, melainkan mengembalikan hak-hak yang telah diberikan Islam kepada perempuan tapi dirampas oleh tradisi dan interpretasi keliru."</p>
+                <p style="text-align: right; font-weight: bold;">— Qasim Amin</p>
+            </div>
+
+            <h3>B. Muhammad Iqbal: Visi yang Lebih Moderat tapi Tetap Progresif</h3>
+            <p>Iqbal tidak seradikal Amin dalam isu perempuan, tapi bukan berarti ia konservatif. Ia hanya lebih diplomatis dalam penyampaiannya.</p>
+
+            <ul class="icon-list">
+                <li><strong>Konsep Umm al-Qura:</strong> Perempuan sebagai pembentuk karakter generasi</li>
+                <li><strong>Keseimbangan Peran:</strong> Tidak membatasi hanya pada ranah domestik</li>
+                <li><strong>Pendidikan sebagai Kunci:</strong> Mendidik perempuan = mendidik generasi</li>
+            </ul>
+        </section>
+
+        <section id="taqlid" class="section">
+            <h2>V. Kritik terhadap Taqlid dan Pembekuan Ijtihad</h2>
+
+            <h3>A. Muhammad Iqbal: "Taqlid adalah Bunuh Diri Intelektual"</h3>
+            <p>Ungkapan ini mungkin terdengar keras, tapi itulah yang Iqbal katakan. Baginya, taqlid adalah pengkhianatan terhadap semangat Islam yang sejati.</p>
+
+            <div class="blockquote">
+                <p>"The door of Ijtihad was never closed. The idea of the finality of the schools is the result of a lazy abdication of intellectual effort and the acceptance of the authority of early jurists."</p>
+                <p style="text-align: right; font-weight: bold;">— Muhammad Iqbal</p>
+            </div>
+
+            <h4>Mengapa Iqbal Sangat Anti-Taqlid?</h4>
+            <ul class="icon-list">
+                <li><strong>Islam adalah Agama Rasional:</strong> Al-Quran penuh perintah untuk berpikir</li>
+                <li><strong>Sejarah Membuktikan:</strong> Kemunduran dimulai saat "pintu ijtihad ditutup" (abad 10 M)</li>
+                <li><strong>Taqlid Membunuh Kreativitas:</strong> Bagaimana bisa berkontribusi jika hanya mengulang?</li>
+            </ul>
+
+            <div class="diagram">
+                <h4>Diagram Metodologi Ijtihad Iqbal:</h4>
+                <pre>
+                    IJTIHAD KOLEKTIF MODERN
+                              |
+        ┌─────────────────────┴─────────────────────┐
+        |                                            |
+   SUMBER TEKSTUAL                           REALITAS KONTEMPORER
+        |                                            |
+   ┌────┴────┐                                  ┌────┴────┐
+   |         |                                  |         |
+Al-Quran  Hadis                              Sains    Sosiologi
+   |         |                                  |         |
+   └────┬────┘                                  └────┬────┘
+        |                                            |
+        └─────────────────────┬─────────────────────┘
+                              |
+                         AKAL KRITIS
+                    (Rasio & Intuisi Spiritual)
+                              |
+                              ↓
+                    HUKUM ISLAM DINAMIS
+                  (Relevan dengan Zaman)
+                </pre>
+            </div>
+
+            <h3>B. Qasim Amin: Memisahkan Islam dari Tradisi Arab</h3>
+            <p>Pendekatan Amin sedikit berbeda tapi sama-sama tajam. Ia fokus pada pemisahan antara syariat Islam dan tradisi Arab/lokal yang sering dicampur aduk.</p>
+
+            <ul class="icon-list">
+                <li><strong>Banyak yang "Islami" Ternyata Hanya Tradisi:</strong> FGM, pernikahan anak, dll</li>
+                <li><strong>Ulama Konservatif sebagai Penghambat:</strong> Mempertahankan status quo</li>
+                <li><strong>Kembali pada Semangat Awal:</strong> Islam di masa Nabi progresif dan dinamis</li>
+            </ul>
+        </section>
+
+        <section id="dampak" class="section">
+            <h2>VI. Dampak dan Relevansi: Warisan yang Masih Hidup</h2>
+
+            <h3>A. Penerimaan dan Penolakan: Drama Intelektual</h3>
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Kritik dari Konservatif</h4>
+                    <p>Dituduh terlalu terpengaruh Barat, bid'ah, bahkan kafir</p>
+                </div>
+                <div class="key-point">
+                    <h4>Dukungan dari Reformis</h4>
+                    <p>Menjadi inspirasi gerakan pembaruan Islam di berbagai negara</p>
+                </div>
+                <div class="key-point">
+                    <h4>Kontroversi yang Produktif</h4>
+                    <p>Melahirkan diskusi kaya dan masyarakat intelektual yang sehat</p>
+                </div>
+            </div>
+
+            <h3>B. Studi Kasus Penerapan Pemikiran</h3>
+
+            <h4>Pakistan: Mewujudkan Visi Iqbal</h4>
+            <ul class="icon-list">
+                <li><strong>Konstitusi Pakistan:</strong> Menyeimbangkan prinsip Islam dengan demokrasi modern</li>
+                <li><strong>Council of Islamic Ideology:</strong> Implementasi ijtihad kolektif Iqbal</li>
+                <li><strong>Pendidikan Nasional:</strong> Kurikulum memasukkan puisi dan pemikiran Iqbal</li>
+            </ul>
+
+            <h4>Mesir & Dunia Arab: Warisan Qasim Amin</h4>
+            <ul class="icon-list">
+                <li><strong>Reformasi Hukum Keluarga (1920-an):</strong> Perlindungan perempuan dalam perceraian</li>
+                <li><strong>Gerakan Feminis Arab:</strong> Huda Sha'arawi mendirikan Egyptian Feminist Union (1923)</li>
+                <li><strong>Pendidikan Perempuan:</strong> Universitas Cairo menerima mahasiswi (1929)</li>
+            </ul>
+
+            <h4>Indonesia: Resonansi dengan Islam Nusantara</h4>
+            <ul class="icon-list">
+                <li><strong>Muhammadiyah & NU:</strong> Lembaga tarjih dan bahtsul masail (ijtihad kolektif)</li>
+                <li><strong>Pemberdayaan Perempuan:</strong> Aisyiyah dan Muslimat NU</li>
+                <li><strong>Moderasi Beragama:</strong> Jalan tengah antara konservatisme dan liberalisme</li>
+            </ul>
+
+            <div class="timeline">
+                <h4>Timeline Pengaruh Pemikiran:</h4>
+                <div class="timeline-item">
+                    <span class="timeline-year">1899</span>
+                    <p>Qasim Amin menerbitkan <em>Tahrir al-Mar'ah</em> - menggemparkan Mesir</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1908</span>
+                    <p>Publikasi <em>al-Mar'ah al-Jadidah</em> dan wafatnya Qasim Amin</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1920s</span>
+                    <p>Reformasi Hukum Keluarga Mesir & Gerakan Feminis Arab (Huda Sha'arawi)</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1930</span>
+                    <p>Iqbal menerbitkan <em>The Reconstruction of Religious Thought in Islam</em></p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1947</span>
+                    <p>Berdirinya Pakistan - mewujudkan visi Iqbal</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1950s-70s</span>
+                    <p>Gelombang Feminisme Islam Global (Fatima Mernissi, Nawal El Saadawi)</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">1990s-2000s</span>
+                    <p>Feminisme Islam Kontemporer (Amina Wadud, Asma Barlas)</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-year">2020s</span>
+                    <p>Moderasi Beragama & Islam Progresif di berbagai negara Muslim</p>
+                </div>
+            </div>
+
+            <h3>C. Relevansi di Abad ke-21</h3>
+            <p>Di tengah kebangkitan fundamentalisme di satu sisi dan islamofobia di sisi lain, pemikiran Iqbal dan Amin menawarkan jalan ketiga yang sangat relevan:</p>
+
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Melawan Ekstremisme</h4>
+                    <p>Menunjukkan bahwa Islam sejati adalah agama yang rasional, humanis, dan progresif</p>
+                </div>
+                <div class="key-point">
+                    <h4>Membantah Islamofobia</h4>
+                    <p>Pemikir Muslim yang menggunakan Islam sebagai basis reformasi dan kemajuan</p>
+                </div>
+                <div class="key-point">
+                    <h4>Inspirasi Generasi Muda</h4>
+                    <p>Membuktikan bahwa menjadi "Muslim yang baik" dan "modern" bukan dikotomi</p>
+                </div>
+                <div class="key-point">
+                    <h4>Menjawab Tantangan Kontemporer</h4>
+                    <p>Metodologi untuk menghadapi isu kesetaraan gender, demokrasi, dan HAM</p>
+                </div>
+            </div>
+
+            <h4>Pelajaran untuk Indonesia:</h4>
+            <ul class="icon-list">
+                <li><strong>Moderasi Beragama:</strong> Program yang sejalan dengan jalan tengah Iqbal dan Amin</li>
+                <li><strong>Pemberdayaan Perempuan:</strong> Argumen bahwa ini adalah perintah Islam, bukan westernisasi</li>
+                <li><strong>Pembaruan Fiqh:</strong> Ijtihad untuk isu kontemporer (ekonomi digital, bioetika)</li>
+                <li><strong>Pendidikan Kritis:</strong> Mendorong pemikiran kritis, bukan hafalan buta</li>
+                <li><strong>Islam Nusantara:</strong> Memadukan Islam universal dengan budaya lokal</li>
+            </ul>
+        </section>
+
+        <section id="penutup" class="section">
+            <h2>VII. Penutup: Melanjutkan Estafet Pembaruan</h2>
+
+            <p>Ketika kita membaca pemikiran Muhammad Iqbal dan Qasim Amin hari ini, kita tidak sedang membaca sejarah kuno. Kita sedang membaca blueprint untuk masa depan Islam yang lebih cerah.</p>
+
+            <h3>Apa yang Membuat Mereka Istimewa?</h3>
+            <div class="key-points">
+                <div class="key-point">
+                    <h4>Keberanian Intelektual</h4>
+                    <p>Berani mempertanyakan status quo dan mengkritik tradisi yang dianggap sakral</p>
+                </div>
+                <div class="key-point">
+                    <h4>Kesetiaan pada Islam</h4>
+                    <p>Kritik cinta yang membangun, bukan menghancurkan</p>
+                </div>
+                <div class="key-point">
+                    <h4>Visi Melampaui Zaman</h4>
+                    <p>Ide-ide yang baru diterima luas puluhan tahun kemudian</p>
+                </div>
+            </div>
+
+            <h3>Pertanyaan untuk Kita:</h3>
+            <ul class="icon-list">
+                <li>Apakah kita masih terjebak dalam taqlid yang mereka kritik?</li>
+                <li>Apakah kita sudah benar-benar memberdayakan perempuan?</li>
+                <li>Apakah kita berani mengkritik secara konstruktif?</li>
+                <li>Apakah kita terbuka pada dialog dengan peradaban lain?</li>
+            </ul>
+
+            <div class="blockquote">
+                <p>"Kau bukan untuk kemarin, hari ini adalah milikmu,<br>
+                Dan esok hari adalah milik tangan-tanganmu yang membangun."</p>
+                <p style="text-align: right; font-weight: bold;">— Muhammad Iqbal</p>
+            </div>
+
+            <h3>Panggilan untuk Aksi</h3>
+            <p>Ini adalah panggilan untuk kita semua—terutama generasi muda Muslim—untuk menjadi agen perubahan, untuk melanjutkan estafet pembaruan yang dimulai oleh Iqbal, Amin, dan para reformis lainnya.</p>
+
+            <p>Islam bukan museum yang isinya artifak-artifak masa lalu yang tidak boleh disentuh. Islam adalah organisme hidup yang tumbuh, berkembang, dan beradaptasi dengan setiap zaman—tanpa kehilangan jati dirinya.</p>
+
+            <p><strong>Muhammad Iqbal dan Qasim Amin telah menunjukkan jalannya. Sekarang giliran kita untuk melanjutkan perjalanan itu.</strong></p>
+
+            <p>Pertanyaannya bukan lagi "apakah kita perlu pembaruan?" Pertanyaannya adalah: <strong>"Apakah kita cukup berani untuk melakukannya?"</strong></p>
+        </section>
+
+        <section class="section">
+            <h2>Daftar Pustaka</h2>
+            
+            <h3>Karya Utama Muhammad Iqbal:</h3>
+            <ul class="icon-list">
+                <li>Iqbal, Muhammad. <em>The Reconstruction of Religious Thought in Islam</em>. Lahore: Institute of Islamic Culture, 1930.</li>
+                <li>Iqbal, Muhammad. <em>Asrar-i-Khudi</em> (Rahasia Diri). Lahore, 1915.</li>
+                <li>Iqbal, Muhammad. <em>Javid Nama</em>. Lahore, 1932.</li>
+            </ul>
+
+            <h3>Karya Utama Qasim Amin:</h3>
+            <ul class="icon-list">
+                <li>Amin, Qasim. <em>Tahrir al-Mar'ah</em> (Pembebasan Perempuan). Kairo, 1899.</li>
+                <li>Amin, Qasim. <em>al-Mar'ah al-Jadidah</em> (Perempuan Baru). Kairo, 1908.</li>
+            </ul>
+
+            <h3>Referensi Sekunder:</h3>
+            <ul class="icon-list">
+                <li>Ahmed, Akbar S. <em>Jinnah, Pakistan and Islamic Identity: The Search for Saladin</em>. Routledge, 1997.</li>
+                <li>Ahmed, Leila. <em>Women and Gender in Islam</em>. Yale University Press, 1992.</li>
+                <li>Baron, Beth. <em>The Women's Awakening in Egypt: Culture, Society, and the Press</em>. Yale University Press, 1994.</li>
+                <li>Hourani, Albert. <em>Arabic Thought in the Liberal Age, 1798-1939</em>. Cambridge University Press, 1983.</li>
+                <li>Kurzman, Charles (ed.). <em>Modernist Islam, 1840-1940: A Sourcebook</em>. Oxford University Press, 2002.</li>
+                <li>Schimmel, Annemarie. <em>Gabriel's Wing: A Study into the Religious Ideas of Sir Muhammad Iqbal</em>. Leiden: Brill, 1963.</li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="footer">
+        <p>Pemikiran Reformasi dan Modernisasi Islam</p>
+        <p>Muhammad Iqbal & Qasim Amin</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">
+            "Islam adalah organisme hidup yang tumbuh, berkembang, dan beradaptasi dengan setiap zaman"
+        </p>
+    </div>
+
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Smooth scrolling untuk semua link navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Tutup dropdown setelah klik
+                    const more = document.querySelector('.nav .more');
+                    if (more && more.classList.contains('open')) {
+                        more.classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Event handler untuk dropdown "Lainnya"
+        const moreBtn = document.querySelector('.nav .more > button');
+        const moreLi = document.querySelector('.nav .more');
+        
+        if (moreBtn && moreLi) {
+            // Toggle dropdown saat button diklik
+            moreBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                moreLi.classList.toggle('open');
+            });
+
+            // Tutup dropdown saat klik di luar
+            document.addEventListener('click', (e) => {
+                if (!moreLi.contains(e.target)) {
+                    moreLi.classList.remove('open');
+                }
+            });
+        }
+
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        if (scrollTop) {
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollTop.style.display = 'flex';
+                } else {
+                    scrollTop.style.display = 'none';
+                }
+            });
+
+            scrollTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        // Highlight active nav link saat scroll
+        const sections = document.querySelectorAll('.section');
+        function updateActive() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id') || current;
+                }
+            });
+
+            const navLinks = document.querySelectorAll('.nav a');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        updateActive();
+        window.addEventListener('scroll', updateActive);
+        window.addEventListener('resize', updateActive);
+    });
+    </script>
+</body>
+</html>
