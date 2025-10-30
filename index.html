@@ -250,20 +250,22 @@
             padding: 1.5rem;
             border-radius: 8px;
             border: 2px solid var(--border);
-            text-align: center;
+            text-align: left;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-            min-height: 420px;
+            gap: 2rem;
+            min-height: 250px;
+            width: 100%;
         }
 
         .figure-card img {
-            width: 200px;
-            height: 200px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--border);
-            margin-bottom: 1rem;
+            flex-shrink: 0;
         }
 
         .figure-card h3 {
