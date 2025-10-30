@@ -70,48 +70,50 @@
             background: transparent;
             border: none;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 12px;
             position: relative;
             z-index: 1000;
+            margin-right: -8px;
         }
 
         .hamburger {
             display: block;
             position: relative;
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--text-dark);
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
         .hamburger::before,
         .hamburger::after {
             content: '';
             position: absolute;
-            width: 24px;
+            width: 22px;
             height: 2px;
             background: var(--text-dark);
-            transition: all 0.3s ease-in-out;
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
 
         .hamburger::before {
-            transform: translateY(-8px);
+            transform: translateY(-7px);
         }
 
         .hamburger::after {
-            transform: translateY(8px);
+            transform: translateY(7px);
         }
 
         .nav.open .hamburger {
             background: transparent;
+            transform: rotate(180deg);
         }
 
         .nav.open .hamburger::before {
-            transform: rotate(45deg);
+            transform: translateY(0) rotate(45deg);
         }
 
         .nav.open .hamburger::after {
-            transform: rotate(-45deg);
+            transform: translateY(0) rotate(-45deg);
         }
 
         .nav-menu {
@@ -262,7 +264,7 @@
             }
 
             .nav-menu {
-                display: none;
+                display: flex;
                 position: absolute;
                 top: 100%;
                 left: 0;
@@ -271,13 +273,19 @@
                 flex-direction: column;
                 gap: 0;
                 padding: 0;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 8px rgba(0,0,0,0.08);
                 border: 1px solid var(--border);
                 border-top: none;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+                transition: all 0.2s cubic-bezier(0.4, 0.0, 0.2, 1);
             }
 
             .nav.open .nav-menu {
-                display: flex;
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
             }
 
             .nav.open .nav-menu {
@@ -286,24 +294,13 @@
 
             .nav li {
                 width: 100%;
-                border-bottom: 1px solid var(--muted);
-            }
-
-            .nav li:last-child {
-                border-bottom: none;
+                text-align: center;
             }
 
             .nav a {
                 padding: 1rem;
                 width: 100%;
-                border-radius: 0;
-                text-align: left;
-            }
-
-            .nav a:hover {
-                background: var(--accent);
-                transform: none;
-                color: white;
+                border-radius: 8px;
             }
 
             .hamburger,
@@ -332,23 +329,13 @@
                 width: 100%;
             }
 
-            .nav .more > button {
-                width: 100%;
-                text-align: left;
-                padding: 1rem;
-                border-radius: 0;
-                background: transparent;
-                color: var(--text-dark);
-                border-bottom: 1px solid var(--muted);
-            }
-
             .nav .more-list {
                 position: static;
                 width: 100%;
                 background: transparent;
                 border: none;
                 box-shadow: none;
-                margin: 0;
+                margin-top: 0.5rem;
                 display: none;
             }
 
@@ -357,15 +344,18 @@
             }
 
             .nav .more-list a {
-                padding: 1rem 1rem 1rem 2rem;
-                text-align: left;
+                padding: 1rem;
+                text-align: center;
                 border-bottom: 1px solid var(--muted);
-                background: var(--bg-cream);
             }
 
-            .nav .more-list a:hover {
-                background: var(--accent);
-                padding-left: 2rem;
+            .nav .more > button {
+                width: 100%;
+                text-align: center;
+                padding: 1rem;
+                border-radius: 8px;
+                background: transparent;
+                color: var(--text-dark);
             }
         }
 
