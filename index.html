@@ -56,7 +56,7 @@
         /* Navbar Styles */
         .nav {
             background: rgba(255, 255, 255, 0.95);
-            padding: 0.6rem 0;
+            padding: 0.6rem 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -65,7 +65,56 @@
             border-bottom: 1px solid var(--border);
         }
 
-        .nav ul {
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .hamburger {
+            display: block;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--text-dark);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger::before {
+            transform: translateY(-8px);
+        }
+
+        .hamburger::after {
+            transform: translateY(8px);
+        }
+
+        .nav.open .hamburger {
+            background: transparent;
+        }
+
+        .nav.open .hamburger::before {
+            transform: rotate(45deg);
+        }
+
+        .nav.open .hamburger::after {
+            transform: rotate(-45deg);
+        }
+
+        .nav-menu {
             list-style: none;
             display: flex;
             justify-content: center;
@@ -73,7 +122,7 @@
             gap: 0.5rem;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0;
             flex-wrap: wrap;
         }
 
@@ -105,6 +154,48 @@
             background: var(--accent);
             color: #FFFFFF;
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 1rem;
+            }
+
+            .nav-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                gap: 1rem;
+                padding: 2rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease-in-out;
+            }
+
+            .nav.open .nav-menu {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            .nav li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav a {
+                padding: 1rem;
+                width: 100%;
+                border-radius: 8px;
+            }
         }
 
         /* Dropdown Styles */
@@ -469,19 +560,17 @@
     </div>
 
     <nav class="nav">
-        <ul>
+        <button class="nav-toggle" aria-label="Toggle Navigation">
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-menu">
             <li><a href="#pendahuluan">Pendahuluan</a></li>
             <li><a href="#tokoh">Latar Belakang</a></li>
             <li><a href="#reformasi">Reformasi Islam</a></li>
             <li><a href="#perempuan">Emansipasi Perempuan</a></li>
             <li><a href="#taqlid">Kritik Taqlid</a></li>
-            <li class="more">
-                <button type="button">Lainnya ▾</button>
-                <div class="more-list">
-                    <a href="#dampak">Dampak & Relevansi</a>
-                    <a href="#penutup">Penutup</a>
-                </div>
-            </li>
+            <li><a href="#dampak">Dampak & Relevansi</a></li>
+            <li><a href="#penutup">Penutup</a></li>
         </ul>
     </nav>
 
@@ -926,6 +1015,24 @@ Al-Quran  Hadis                              Sains    Sosiologi
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // Handle hamburger menu
+        const nav = document.querySelector('.nav');
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+        });
+
         // Smooth scrolling untuk semua link navigasi
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -933,11 +1040,6 @@ Al-Quran  Hadis                              Sains    Sosiologi
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Tutup dropdown setelah klik
-                    const more = document.querySelector('.nav .more');
-                    if (more && more.classList.contains('open')) {
-                        more.classList.remove('open');
-                    }
                 }
             });
         });
