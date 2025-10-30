@@ -128,6 +128,7 @@
 
         .nav li {
             margin: 0;
+            position: relative;
         }
 
         .nav a {
@@ -154,6 +155,89 @@
             background: var(--accent);
             color: #FFFFFF;
             box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+
+        /* Dropdown styles */
+        .nav .more {
+            position: relative;
+        }
+
+        .nav .more > button {
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: all 0.18s ease;
+        }
+
+        .nav .more > button:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .nav .more.open > button {
+            background: var(--accent);
+            color: #FFFFFF;
+        }
+
+        .nav .more-list {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 2px solid var(--border);
+            box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            min-width: 200px;
+            display: none;
+            z-index: 200;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+
+        .nav .more-list a {
+            display: block;
+            padding: 0.75rem 1rem;
+            color: var(--text-dark);
+            border-radius: 0;
+            transition: all 0.18s ease;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid var(--muted);
+        }
+
+        .nav .more-list a:last-child {
+            border-bottom: none;
+        }
+
+        .nav .more-list a:hover {
+            background: var(--accent);
+            color: #FFFFFF;
+            transform: none;
+            padding-left: 1.2rem;
+        }
+
+        .nav .more.open .more-list {
+            display: block;
+            animation: dropdownFade 0.2s ease;
+        }
+
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @media (max-width: 768px) {
@@ -569,8 +653,13 @@
             <li><a href="#reformasi">Reformasi Islam</a></li>
             <li><a href="#perempuan">Emansipasi Perempuan</a></li>
             <li><a href="#taqlid">Kritik Taqlid</a></li>
-            <li><a href="#dampak">Dampak & Relevansi</a></li>
-            <li><a href="#penutup">Penutup</a></li>
+            <li class="more">
+                <button type="button">Lainnya ▾</button>
+                <div class="more-list">
+                    <a href="#dampak">Dampak & Relevansi</a>
+                    <a href="#penutup">Penutup</a>
+                </div>
+            </li>
         </ul>
     </nav>
 
@@ -1019,21 +1108,40 @@ Al-Quran  Hadis                              Sains    Sosiologi
         const nav = document.querySelector('.nav');
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
+        const moreBtn = document.querySelector('.nav .more > button');
+        const moreLi = document.querySelector('.nav .more');
 
+        // Toggle mobile menu
         navToggle.addEventListener('click', () => {
             nav.classList.toggle('open');
             document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
         });
 
-        // Close menu when clicking a link
+        // Toggle dropdown menu
+        if (moreBtn && moreLi) {
+            moreBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                moreLi.classList.toggle('open');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!moreLi.contains(e.target)) {
+                    moreLi.classList.remove('open');
+                }
+            });
+        }
+
+        // Close menus when clicking a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('open');
+                moreLi.classList.remove('open');
                 document.body.style.overflow = '';
             });
         });
 
-        // Smooth scrolling untuk semua link navigasi
+        // Smooth scrolling for all navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
