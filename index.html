@@ -243,10 +243,22 @@
         @media (max-width: 768px) {
             .nav {
                 padding: 1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
 
             .nav-toggle {
-                display: block;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 30px;
+                height: 30px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                z-index: 1000;
             }
 
             .nav-menu {
@@ -260,14 +272,11 @@
                 flex-direction: column;
                 justify-content: center;
                 gap: 1rem;
-                padding: 2rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease-in-out;
+                padding: 4rem 2rem 2rem;
             }
 
             .nav.open .nav-menu {
                 display: flex;
-                transform: translateX(0);
             }
 
             .nav li {
@@ -278,6 +287,47 @@
             .nav a {
                 padding: 1rem;
                 width: 100%;
+                border-radius: 8px;
+            }
+
+            .hamburger,
+            .hamburger::before,
+            .hamburger::after {
+                width: 24px;
+                height: 2px;
+                background: var(--text-dark);
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            }
+
+            .nav.open .hamburger {
+                background: transparent;
+            }
+
+            .nav.open .hamburger::before {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .nav.open .hamburger::after {
+                transform: rotate(-45deg) translate(5px, -5px);
+            }
+
+            /* Adjust dropdown for mobile */
+            .nav .more-list {
+                position: static;
+                background: transparent;
+                border: none;
+                box-shadow: none;
+                margin-top: 0;
+            }
+
+            .nav .more-list a {
+                padding: 1rem;
+                border-bottom: 1px solid var(--muted);
+            }
+
+            .nav .more > button {
+                width: 100%;
+                text-align: center;
                 border-radius: 8px;
             }
         }
@@ -1104,20 +1154,21 @@ Al-Quran  Hadis                              Sains    Sosiologi
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Handle hamburger menu
         const nav = document.querySelector('.nav');
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
         const moreBtn = document.querySelector('.nav .more > button');
         const moreLi = document.querySelector('.nav .more');
 
-        // Toggle mobile menu
-        navToggle.addEventListener('click', () => {
-            nav.classList.toggle('open');
-            document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-        });
+        // Mobile menu toggle
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                nav.classList.toggle('open');
+                document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+            });
+        }
 
-        // Toggle dropdown menu
+        // Dropdown menu toggle
         if (moreBtn && moreLi) {
             moreBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
@@ -1136,12 +1187,12 @@ Al-Quran  Hadis                              Sains    Sosiologi
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 nav.classList.remove('open');
-                moreLi.classList.remove('open');
+                if (moreLi) moreLi.classList.remove('open');
                 document.body.style.overflow = '';
             });
         });
 
-        // Smooth scrolling for all navigation links
+        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1152,34 +1203,11 @@ Al-Quran  Hadis                              Sains    Sosiologi
             });
         });
 
-        // Event handler untuk dropdown "Lainnya"
-        const moreBtn = document.querySelector('.nav .more > button');
-        const moreLi = document.querySelector('.nav .more');
-        
-        if (moreBtn && moreLi) {
-            // Toggle dropdown saat button diklik
-            moreBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                moreLi.classList.toggle('open');
-            });
-
-            // Tutup dropdown saat klik di luar
-            document.addEventListener('click', (e) => {
-                if (!moreLi.contains(e.target)) {
-                    moreLi.classList.remove('open');
-                }
-            });
-        }
-
         // Scroll to top button
         const scrollTop = document.getElementById('scrollTop');
         if (scrollTop) {
             window.addEventListener('scroll', () => {
-                if (window.pageYOffset > 300) {
-                    scrollTop.style.display = 'flex';
-                } else {
-                    scrollTop.style.display = 'none';
-                }
+                scrollTop.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
             });
 
             scrollTop.addEventListener('click', () => {
@@ -1187,7 +1215,7 @@ Al-Quran  Hadis                              Sains    Sosiologi
             });
         }
 
-        // Highlight active nav link saat scroll
+        // Active nav link highlighting
         const sections = document.querySelectorAll('.section');
         function updateActive() {
             let current = '';
@@ -1198,8 +1226,7 @@ Al-Quran  Hadis                              Sains    Sosiologi
                 }
             });
 
-            const navLinks = document.querySelectorAll('.nav a');
-            navLinks.forEach(link => {
+            document.querySelectorAll('.nav a').forEach(link => {
                 link.classList.remove('active');
                 if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
